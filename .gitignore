@@ -1,5 +1,8 @@
 /node_modules
 /build
+/temp
 
 .env
+config/config.json
+config/permissions.json
 package-lock.json

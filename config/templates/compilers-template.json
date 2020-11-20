@@ -1,0 +1,17 @@
+[
+  {
+    "name": "Compiler 1",
+    "path": "/bin/compilers/abc",
+    "arch": "arch1"
+  },
+  {
+    "name": "Compiler 2",
+    "path": "/bin/compilers/def",
+    "arch": "arch2"
+  },
+  {
+    "name": "Compiler 3",
+    "path": "/bin/compilers/ghi",
+    "arch": "arch3"
+  }
+]
