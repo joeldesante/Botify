@@ -1,5 +1,6 @@
 import { CompiBot } from "../CompiBot";
 import { Command } from "./Command";
+import config from '../config/config.json';
 
 export class CommandParser {
   /**
@@ -7,9 +8,8 @@ export class CommandParser {
    */
   public parse(input: string): any {
 
-    // FIXME Make it work with the config
     const chunked = input.split(' ');
-    if(!chunked[0].startsWith(';')) {
+    if(!chunked[0].startsWith(config.prefix)) {
       return undefined;
     }
     const commandName = chunked[0].slice(1);
