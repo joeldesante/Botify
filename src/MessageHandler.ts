@@ -1,4 +1,5 @@
 import { Client, Message, User } from 'discord.js';
+import { EventEmitter } from 'events';
 import { send } from 'process';
 import { Command } from './Command/Command';
 import { CommandManager } from './Command/CommandManager';
@@ -24,8 +25,5 @@ export class MessageHandler {
     
     commandData.command.execute(commandData.params, this.client, sender, message);
 
-    /*if((message.author.id != this.client.user!.id) && (message.channel.id == "775779299369812009")) {
-      message.reply("Oh yes. Joel is so cool. Joel is the coolest guy in the world. He likes to cook too ladies!");
-    }*/
   }
 }

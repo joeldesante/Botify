@@ -1,9 +1,7 @@
 import { Command } from "../Command";
 import { Client, Message, User } from 'discord.js';
-import config from '../../../config/config.json';
-import { v4 as uuid } from 'uuid';
-import wget from 'wget-improved';
 import * as child from 'child_process';
+import { MessageHandler } from "../../MessageHandler";
 
 export interface DownloadOutput {
   output: string,
@@ -36,6 +34,22 @@ export class Run extends Command {
 
       process.on('error', (err)=>{
         reject(err);
+      });
+
+      MessageHandler.messageEmitter.on('message', (eventMessage: Message) => {
+        if(eventMessage.author !== message.author)
+          return;
+
+        let content = message.content;
+        if(!content.startsWith('\\'))
+          return;
+
+        console.log(content);
+        content = content.slice(0,-1);
+        console.log(content);
+        return;
+        
+        process.stdin?.write(message.content);
       });
 
       process.stdout?.on('data', (data) => {
